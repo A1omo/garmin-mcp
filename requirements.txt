@@ -1,0 +1,5 @@
+# Probado el 24-sep-2026 con fastmcp 4.0.5 y 4.0.9, y garminconnect 0.3.16.
+# fastmcp: solo parches de 4.0.x (sus versiones menores han roto APIs antes).
+fastmcp>=4.0.5,<4.1
+# garminconnect: se permiten 0.3.x porque ahí llegan los arreglos cuando Garmin cambia el login.
+garminconnect>=0.3.16,<0.4

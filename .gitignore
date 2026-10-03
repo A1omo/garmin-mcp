@@ -1,0 +1,5 @@
+garmin_tokens.txt
+.env
+__pycache__/
+*.pyc
+.DS_Store

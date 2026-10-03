@@ -1,0 +1,23 @@
+# Referencia de despliegue en Render (Blueprint). El servicio actual se creó a mano como
+# Web Service con runtime Docker; este archivo sirve para recrearlo igual si hace falta.
+# Los valores secretos se pegan en el dashboard (sync: false), nunca aquí.
+services:
+  - type: web
+    name: garmin-mcp
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: GARMIN_TOKENS          # string de garmin_login.py
+        sync: false
+      - key: GARMIN_EMAIL           # respaldo si el token caduca (cuenta sin MFA)
+        sync: false
+      - key: GARMIN_PASSWORD
+        sync: false
+      - key: MCP_PATH               # /mcp/<secreto de openssl rand -hex 24>
+        sync: false
+      - key: LOCAL_TZ_OFFSET_HOURS  # Bogotá
+        value: "-5"
+      - key: STRENGTH_SPORT_TYPE_ID # opcional; por defecto 5
+        sync: false
